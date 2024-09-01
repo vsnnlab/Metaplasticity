@@ -8,7 +8,7 @@ while true
 end
 
 stbColor = [162,89,51]/256; conventionalColor = [29,55,102]/256; hybridColor = [0.8 0 0]; chanceColor = [.7 .7 .7];
-initX = 30; initY = 16; Xdistance = 70;
+initX = 30; initY = 16; Xdistance = 7;
 
 
 %% Figure 2
@@ -30,7 +30,7 @@ if figNum == 2
         else if nn == 3; figTitle = "Figure 2g";
         end; end; end
 
-        figure('Units','milimeters','Position',[84 38 initX+nn*10 initY+nn*10]);
+        figure('Units','centimeters','Position',[initX+nn*1 initY+nn*1 8.4 3.8]);
 
         subplot(1,3,1:2)
         hold on
@@ -80,7 +80,7 @@ if figNum == 2
         else if nn == 3; figTitle = "Figure 2h"; lineColor = stbColor;
         end; end; end
 
-        figure('Units','milimeters','Position',[39 38 initX+Xdistance+nn*10 initY+nn*10]); hold on
+        figure('Units','centimeters','Position',[initX+Xdistance+nn*1 initY+nn*1 3.9 3.8]); hold on
         targTimepoint = numCategories*1+1;
 
         compareChance = zeros(1,numCategories);
@@ -110,7 +110,7 @@ if figNum == 2
         else if nn == 3; figTitle = "Figure 2h"; lineColor = stbColor;
         end; end; end
 
-        figure('Units','milimeters','Position',[38 38 initX+2*Xdistance+nn*10 initY+nn*10]); hold on
+        figure('Units','centimeters','Position',[initX+2*Xdistance+nn*1 initY+nn*1 3.8 3.8]); hold on
 
         plot(1:numCategories,1:numCategories,'Color',chanceColor,'LineStyle','--','LineWidth',2);
         shaded_errorbar(meanCnt(nn,:),stdItems(nn,:),lineColor,x,1);
@@ -136,7 +136,7 @@ if figNum == 3
 
     figTitle = "Figure 3b";
 
-    figure('Units','milimeters','Position',[38 50 initX initY]);
+    figure('Units','centimeters','Position',[initX initY 38 50]);
     
     sampleTrial = 1;
     
@@ -179,7 +179,7 @@ if figNum == 3
 
     figTitle = "Figure 3c";
 
-    figure('Units','milimeters','Position',[81 39 initX+Xdistance initY]);
+    figure('Units','centimeters','Position',[initX+Xdistance initY 8.1 3.9]);
     subplot(1,2,1); hold on
     plot(1:numCategories,1:numCategories,'Color',chanceColor,'LineStyle','--','LineWidth',2);
     for nn = 1:2
@@ -241,7 +241,7 @@ if figNum == 3
         end
     end
 
-    figure('Units','milimeters','Position',[39 42 initX+2*Xdistance initY]); hold on
+    figure('Units','centimeters','Position',[initX+1*Xdistance initY 3.9 4.2]); hold on
     
     for nn = 1:2
         if nn == 1; lineColor = conventionalColor;
@@ -264,7 +264,7 @@ if figNum == 3
     % Fig 3e
     figTitle = "Figure 3e";
 
-    figure('Units','milimeters','Position',[39 42 initX+3*Xdistance initY]);
+    figure('Units','centimeters','Position',[initX+1*Xdistance initY 3.9 4.2]);
     meanSum = zeros(3,numCategories); stdSum = zeros(3,numCategories);    
     for nn = 1:2
         for cc = 1:numCategories
@@ -280,7 +280,7 @@ if figNum == 3
         end
     end
 
-    figure('Units','milimeters','Position',[39 42 190 16]); hold on
+    figure('Units','centimeters','Position',[39 42 190 16]); hold on
     
     for nn = 1:2
         if nn == 1; lineColor = conventionalColor;
@@ -311,7 +311,7 @@ if figNum == 4
 
     figTitle = "Figure 4c";
 
-    figure('Units','milimeters','Position',[66 39 initX initY]);
+    figure('Units','centimeters','Position',[initX initY 6.6 3.9]);
 
     repInterest = [1,3,6,9];
 
@@ -344,7 +344,7 @@ if figNum == 4
     % Fig 4d
     figTitle = "Figure 4d";
 
-    figure('Units','milimeters','Position',[36 39 initX+Xdistance initY]); hold on
+    figure('Units','centimeters','Position',[36 39 initX+Xdistance initY]); hold on
     
     repInterest = 9;
 
@@ -376,7 +376,7 @@ if figNum == 4
     [meanAttackPerf,stdAttackPerf] = calculateMeanStd(attackPerformanceCell,numTrial);
 
     figTitle = "Figure 4f";
-    figure('Units','milimeters','Position',[36 39 initX+2*Xdistance initY]); hold on
+    figure('Units','centimeters','Position',[initX+2*Xdistance initY 3.6 3.9]); hold on
     
     for nn = 1:2
 
@@ -411,7 +411,7 @@ if figNum == 4
 
     avgData = squeeze(mean(attackPerformanceCell(end,:,:,:),2));
 
-    figure('Units','milimeters','Position',[36 39 initX+4*Xdistance initY]); hold on
+    figure('Units','centimeters','Position',[36 39 initX+4*Xdistance initY]); hold on
     
     plot(0:3,numCategories*[1 1 1],'Color',chanceColor,'LineStyle','--','LineWidth',2);
     ax = axes();
@@ -437,7 +437,7 @@ if figNum == 4
     figTitle = "Figure 4h";
     
     memorizedCntData = squeeze(memorizedAttackCnt(nn,end,:))';
-    figure('Units','milimeters','Position',[36 39 initX+5*Xdistance initY]); hold on
+    figure('Units','centimeters','Position',[initX+5*Xdistance initY 3.6 3.9]); hold on
     
     ax = axes();
     hold(ax);
@@ -493,7 +493,7 @@ if figNum == 5
         sampleFrequency(cc) = sum(catInfo==cc);
     end
 
-    figure('Units','milimeters','Position',[47 39 initX+Xdistance initY]); hold on
+    figure('Units','centimeters','Position',[47 39 initX+Xdistance initY]); hold on
     
     % yyaxis left
     for nn = 1:2
@@ -547,8 +547,22 @@ if figNum == 5
         end
         clear I cc catInfo temp
     end
+
+    figure('Units','centimeters','Position',[initX+Xdistance initY 3.9 3.8]); hold on;
+    data = clsRepAcc(end,:,:,2);
+    s = scatter(repmat((1:10)-0.1,1,numTrial),data(:),2,conventionalColor,"filled");
+    s.MarkerFaceAlpha = 0.2;
+    data = clsRepAcc(end,:,:,1);
+    s = scatter(repmat((1:10)+0.1,1,numTrial),data(:),2,[1 0 0],"filled");
+    s.MarkerFaceAlpha = 0.2;
+    xlabel('Frequency'); ylabel('Performance');
+    xticks(0:2:10); yticks(0:.2:1);
+    xlim([0 10])
+    set(gca,'TickDir','out');
     
-    figure('Units','milimeters','Position',[60 39 initX+Xdistance initY]);
+    clear data
+    
+    figure('Units','centimeters','Position',[initX+2*Xdistance initY 6.0 3.9]);
 
     subplot(1,2,1); hold on;
     nn=2;
@@ -632,6 +646,14 @@ if figNum == 5
 
 end
 
+
+
+
+
+
+
+
+%%%%%%%% Old plots
 
 %% Memorized ratio
 % [h, p, ~, stat] = ttest(squeeze(performanceCell(targCat*5+1,targCat,1:targTrial,nn)), 1/numCategories, "Tail", "right")
@@ -797,8 +819,6 @@ end
 
 anova(data)
 
-%% Fig 4. Change of the min performance within cycle thru repetition
-addpath('catast_function')
 
 %% Fig 4d. Std across items - barchart
 addpath('catast_function')
@@ -825,24 +845,6 @@ ylabel("SD(performance)"); xlabel("Repetition")
 
 stdData = squeeze(std(performanceCell(numCategories*(1:10)+1,:,:,3),0,2));
 [~,p] = ttest2(stdData(1,:),stdData(10,:))
-
-% figure; hold on;
-% nn=3;
-% for rr = 1:repInterest
-%     tempcolor = [(rr-1)*(unstbColor(1))/(repInterest-1),...
-%         (rr-1)*(unstbColor(2))/(repInterest-1),...
-%         (rr-1)*(unstbColor(3))/(repInterest-1)];
-% %     scatter(meanAvg(nn,cc),meanRes(nn,cc),"filled",'MarkerFaceColor',tempcolor,'MarkerFaceAlpha',1.0);
-% 
-%     scatter(mean(meanAcc(numCategories*rr+1,:,nn),"all"),meanStd(nn,rr),'filled','MarkerFaceColor',tempcolor,'MarkerFaceAlpha',1.0);
-% end
-% 
-% nn=2;
-% for rr = 1:repInterest
-%     scatter(mean(meanAcc(numCategories*rr+1,:,nn),"all"),meanStd(nn,rr),'filled','MarkerFaceColor',[(rr-1)/repInterest 0 0],'MarkerFaceAlpha',1.0);
-% end
-% set(gca,'TickDir','out');
-% ylabel("SD(performance)"); xlabel("Avg. performance"); xlim([0.2 0.4]); xticks(0.2:0.05:0.4) %xlim([0.03 0.12])
 
 %% Fig 5. Freq vs. Perf. (Indiv.)
 
@@ -871,22 +873,8 @@ end
 meanRepAcc = squeeze(mean(clsRepAcc,3));
 stdRepAcc = squeeze(std(clsRepAcc,0,3));
 
-x = 1:numCategories;
-f = figure; hold on
-% nn=1;
-% shaded_errorbar(meanRepAcc(end,:,nn),stdRepAcc(end,:,nn)/sqrt(numTrial),stbColor,x,1);
-nn=2;
-shaded_errorbar(meanRepAcc(end,:,nn),stdRepAcc(end,:,nn)/sqrt(numTrial),conventionalColor,x,0);
-nn=1;
-shaded_errorbar(meanRepAcc(end,:,nn),stdRepAcc(end,:,nn)/sqrt(numTrial),[1 0 0],x,0);
-
-xlabel('Frequency')
-ylabel('Performance')
-xlim([1 numCategories])
-ylim([0 1])
-
 targTrial  = 4;
-figure; hold on; x = 1:numCategories;
+figure('Units','centimeters','Position',[10 10 3.9 3.8]); hold on; x = 1:numCategories;
 y = clsRepAcc(end,:,targTrial,2);
 c = polyfit(x,y,1); xfit = 0:0.1:numCategories; yfit = polyval(c,xfit);
 plot(x,y,'-',xfit,yfit,'--','Color',conventionalColor)
@@ -895,16 +883,27 @@ y = clsRepAcc(end,:,targTrial,1);
 c = polyfit(x,y,1); xfit = 0:0.1:numCategories; yfit = polyval(c,xfit);
 plot(x,y,'-',xfit,yfit,'--','Color',[1 0 0])
 
+xlabel('Frequency')
+ylabel('Performance')
+xlim([1 numCategories])
+ylim([0 1])
 
 [r,p] = corr([1:10]',clsRepAcc(end,:,targTrial,1)', 'Type','Spearman')
 [r,p] = corr([1:10]',clsRepAcc(end,:,targTrial,2)', 'Type','Spearman')
 
-%% Freq vs. performance (Trend line, liear fitting)
+figure('Units','centimeters','Position',[10 10 3.9 3.8]); hold on;
+data = clsRepAcc(end,:,:,2);
+s = scatter(repmat((1:10)-0.1,1,numTrial),data(:),2,conventionalColor,"filled");
+s.MarkerFaceAlpha = 0.2;
+data = clsRepAcc(end,:,:,1);
+s = scatter(repmat((1:10)+0.1,1,numTrial),data(:),2,[1 0 0],"filled");
+s.MarkerFaceAlpha = 0.2;
+xlabel('Frequency'); ylabel('Performance');
+xticks(0:2:10); yticks(0:.2:1);
+xlim([0 10])
+set(gca,'TickDir','out');
 
-
-% ylabel("Correlation"); xticklabels(["Hybrid","Conventional"])
-%% Fig 5b. Sample plot for order vs performance 
-
+clear data
 
 %% Bar-Freq-Order plot
 for targTrial = 20
@@ -955,9 +954,6 @@ for targTrial = 20
     ax.TickDir = 'out';
     
 end
-
-%% Order vs. performance (Trend line, liear fitting)
-
 
 %% Figure 5. Corr b/w Performance-Freq and Performance-CorrOrder
 
